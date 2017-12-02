@@ -1,6 +1,6 @@
 extern crate advent_of_code;
-use advent_of_code::puzzle;
+use advent_of_code::run_challenge;
 
 fn main() {
-    println!("{}", puzzle(std::env::args().nth(1).expect("No input found")));
+    run_challenge(2);
 }
