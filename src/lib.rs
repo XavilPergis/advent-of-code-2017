@@ -4,9 +4,15 @@
 fn sum_repeated_iterators(digits: &[u8]) -> usize {
     let half_point = digits.len() / 2;
 
+    // Multiply by two because we only iterate half the list. Starting from the
+    // front adds the stuff in the back, and since addition is commutative, starting
+    // from the back and adding the front is the same.
     2 * digits[..half_point].iter()
         .zip(digits[half_point..].iter())
+        // Check to see if half way around is the same as the current location
         .filter(|&(a, b)| a == b)
+        // If it is, take the first location and convert the ASCII digit into
+        // and actual number
         .map(|(a, _)| (a - b'0') as usize)
         .sum::<usize>()
 }
