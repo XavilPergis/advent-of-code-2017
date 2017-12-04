@@ -7,6 +7,10 @@ use std::path::Path;
 use std::fs::File;
 use std::io::Read;
 
+pub fn input_file() -> String {
+    read_file(first_arg())
+}
+
 pub fn read_file<P: AsRef<Path>>(path: P) -> String {
     let mut buf = String::new();
     let mut file = File::open(path).expect("Could not open file");
@@ -23,6 +27,7 @@ static CHALLENGES: &[fn()] = &[
     challenges::day_1::puzzle,
     challenges::day_2::puzzle,
     challenges::day_3::puzzle,
+    challenges::day_4::puzzle,
 ];
 
 pub fn run_challenge(challenge: usize) {
